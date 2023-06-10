@@ -8,10 +8,10 @@ const {
   } = process.env
 
   // Configuration 
-cloudinary.config({
-    cloud_name: CLOUD_NAME,
-    api_key: CLOUD_API,
-    api_secret: CLOUD_SECRET
+  cloudinary.config({ 
+    cloud_name: 'digrts68o', 
+    api_key: '874312443229167', 
+    api_secret: '2tg2nXtug4Bda27Ne6lhM5VOhjk' 
   });
 
 const createBookHandler = async (req,res) => {
@@ -37,9 +37,13 @@ const createBookHandler = async (req,res) => {
     // console.log('4$$$$$$$boraddp');
 
     //const rta =  cloudinary.uploader.upload(UrlImagen, {public_id: NameSinextencion})
-    const resup = await cloudinary.uploader.upload(UrlImagen, {public_id: NameSinextencion})
-   const { secure_url } = resup;
-   console.log(secure_url);
+  //   const resup = await cloudinary.uploader.upload(UrlImagen, {public_id: NameSinextencion})
+  //  const { secure_url } = resup;
+  cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
+  { public_id: "olympic_flag" }, 
+  function(error, result) {console.log(result); });
+
+   console.log('hola');
    console.log('####');
 
         if (!title || !publisher || !description || !price || !stock || !publishedDate || !secure_url) {
